@@ -1,0 +1,34 @@
+.resume .resume-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #0563bb;
+}
+
+.resume .resume-item {
+  margin-bottom: 20px;
+}
+
+.resume .resume-item ul {
+  padding-left: 20px;
+}
+
+.resume .resume-item ul li {
+  padding-bottom: 10px;
+}
+
+.resume .resume-item h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.resume .resume-item h5 {
+  font-size: 14px;
+  background: #f7f8f9;
+  padding: 5px 10px;
+  display: inline-block;
+  margin: 10px 0;
+  border-radius: 4px;
+}
