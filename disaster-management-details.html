@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI-Based Disaster Response Management System | Shreenithy R S</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet">
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(255, 255, 255, 0.045),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 90% 90%,
+          rgba(255, 255, 255, 0.035),
+          transparent 35%
+        ),
+        #050505;
+      color: #f5f5f5;
+      min-height: 100vh;
+    }
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    .navbar {
+      background: rgba(8, 8, 8, 0.68);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 15px 0;
+    }
+
+    .navbar-brand {
+      color: #ffffff !important;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+
+    .navbar-nav .nav-link {
+      color: #bcbcbc !important;
+      font-size: 0.88rem;
+      margin-left: 22px;
+      transition: 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #ffffff !important;
+    }
+
+    .navbar-toggler {
+      border: none;
+      box-shadow: none !important;
+    }
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    .details-section {
+      padding: 115px 0 70px;
+    }
+
+    .page-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .page-heading h1 {
+      font-size: 2.35rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .page-heading p {
+      color: #969696;
+      max-width: 850px;
+      margin: auto;
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    /* =========================================================
+       GLASS CARD
+    ========================================================= */
+
+    .details-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.085);
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .details-card h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: #ffffff;
+    }
+
+    .details-card h2 i {
+      margin-right: 9px;
+      color: #d8d8d8;
+    }
+
+    .details-card p {
+      color: #b7b7b7;
+      font-size: 0.9rem;
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    /* =========================================================
+       PROJECT IMAGE
+    ========================================================= */
+
+    .project-image {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    /* =========================================================
+       VIDEO
+    ========================================================= */
+
+    .demo-video {
+      width: 100%;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: #000;
+      display: block;
+    }
+
+    .video-note {
+      margin-top: 12px;
+      color: #777;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    /* =========================================================
+       MODULE CARDS
+    ========================================================= */
+
+    .module-box {
+      height: 100%;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 22px;
+      transition: 0.3s ease;
+    }
+
+    .module-box:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .module-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 15px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .module-box h3 {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .module-box p {
+      font-size: 0.82rem;
+      line-height: 1.75;
+    }
+
+    /* =========================================================
+       FEATURE LIST
+    ========================================================= */
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-list li {
+      color: #b8b8b8;
+      font-size: 0.87rem;
+      line-height: 1.7;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list i {
+      color: #ffffff;
+      margin-right: 10px;
+    }
+
+    /* =========================================================
+       TECHNOLOGY TAGS
+    ========================================================= */
+
+    .technology-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .technology {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #d0d0d0;
+      font-size: 0.78rem;
+    }
+
+    /* =========================================================
+       AI SECTION
+    ========================================================= */
+
+    .ai-box {
+      border-left: 3px solid #ffffff;
+      padding-left: 20px;
+    }
+
+    .ai-item {
+      margin-bottom: 18px;
+    }
+
+    .ai-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .ai-item h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .ai-item p {
+      font-size: 0.84rem;
+    }
+
+    /* =========================================================
+       FLOW
+    ========================================================= */
+
+    .flow-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 17px;
+    }
+
+    .flow-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .flow-number {
+      width: 32px;
+      min-width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .flow-item p {
+      padding-top: 4px;
+      font-size: 0.85rem;
+    }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .project-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      padding: 11px 20px;
+      border-radius: 8px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .btn-white {
+      background: #ffffff;
+      color: #050505;
+    }
+
+    .btn-white:hover {
+      background: #dddddd;
+      color: #000000;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.09);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      text-align: center;
+      padding: 25px 0;
+      color: #6f6f6f;
+      font-size: 0.78rem;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 991px) {
+
+      .navbar-nav .nav-link {
+        margin-left: 0;
+        padding: 8px 0;
+      }
+
+      .page-heading h1 {
+        font-size: 2rem;
+      }
+
+    }
+
+    @media (max-width: 576px) {
+
+      .details-section {
+        padding-top: 100px;
+      }
+
+      .details-card {
+        padding: 22px;
+      }
+
+      .page-heading h1 {
+        font-size: 1.65rem;
+      }
+
+      .project-actions {
+        flex-direction: column;
+      }
+
+      .project-btn {
+        justify-content: center;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+  <!-- =========================================================
+       NAVBAR
+  ========================================================= -->
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+
+    <div class="container">
+
+      <a class="navbar-brand" href="index.html">
+        Portfolio
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+
+        <i class="bi bi-list text-white fs-3"></i>
+
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              Home
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">
+              About
+            </a>
+          </li>
+
+          
+
+          <li class="nav-item">
+            <a class="nav-link active" href="projects.html">
+              Projects
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="skills.html">
+              Skills
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="experiences.html">
+              Experiences
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================================================
+       PROJECT DETAILS
+  ========================================================= -->
+
+  <section class="details-section">
+
+    <div class="container">
+
+
+      <!-- PAGE TITLE -->
+
+      <div class="page-heading">
+
+        <h1>
+          AI-Based Disaster Response Management System
+        </h1>
+
+        <p>
+          AI-powered disaster resource management platform for
+          resource demand prediction, disaster impact assessment,
+          logistics optimization, mission coordination, and relief
+          operations.
+        </p>
+
+      </div>
+
+
+
+
+      <!-- PROJECT OVERVIEW -->
+
+      <div class="details-card">
+
+        <h2>
+          <i class="bi bi-info-circle"></i>
+          Project Overview
+        </h2>
+
+        <p>
+          During disaster events, resource allocation decisions for
+          food, water, medical supplies, search and rescue teams,
+          and shelter are often made with incomplete information.
+          This project develops a full-stack AI-powered disaster
+          resource management platform that integrates disaster
+          event information, geospatial data, population information,
+          and field resource inventory to support disaster impact
+          assessment, resource demand prediction, and optimized
+          relief operations.
+        </p>
+
+        <br>
+
+        <p>
+          The platform provides a centralized command environment
+          where relief coordinators can manage disasters, resources,
+          vehicles, field teams, missions, SOS requests, logistics,
+          and AI-based resource predictions. Field teams can access
+          mission assignments and location-based disaster information
+          through a responsive interface.
+        </p>
+
+      </div>
+
+
+      <!-- OBJECTIVE -->
+
+      <div class="details-card">
+
+        <h2>
+          <i class="bi bi-bullseye"></i>
+          Objective
+        </h2>
+
+        <div class="ai-box">
+
+          <p>
+            The main objective is to improve disaster response
+            coordination by using AI-based demand prediction,
+            geospatial visualization, resource tracking, and
+            logistics planning to support faster and more informed
+            relief operations.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MODULES -->
+
+      <div class="details-card">
+
+        <h2>
+          <i class="bi bi-grid-1x2"></i>
+          Core Modules
+        </h2>
+
+        <div class="row g-4">
+
+
+          <!-- MODULE 1 -->
+
+          <div class="col-md-6">
+
+            <div class="module-box">
+
+              <div class="module-number">
+                01
+              </div>
+
+              <h3>
+                Disaster Data & Impact Assessment
+              </h3>
+
+              <p>
+                Disaster information is collected and visualized
+                with geographic locations, severity information,
+                affected zones, and map-based impact assessment.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- MODULE 2 -->
+
+          <div class="col-md-6">
+
+            <div class="module-box">
+
+              <div class="module-number">
+                02
+              </div>
+
+              <h3>
+                AI Resource Demand Prediction
+              </h3>
+
+              <p>
+                The trained machine learning model predicts demand
+                for food, water, medical kits, and shelter based on
+                disaster-zone characteristics and population-related
+                information.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- MODULE 3 -->
+
+          <div class="col-md-6">
+
+            <div class="module-box">
+
+              <div class="module-number">
+                03
+              </div>
+
+              <h3>
+                Logistics & Resource Management
+              </h3>
+
+              <p>
+                Resources and vehicles are managed through the
+                platform while logistics plans support allocation,
+                routing, resource distribution, and relief execution.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- MODULE 4 -->
+
+          <div class="col-md-6">
+
+            <div class="module-box">
+
+              <div class="module-number">
+                04
+              </div>
+
+              <h3>
+                Missions & Field Operations
+              </h3>
+
+              <p>
+                Field teams receive mission assignments and can
+                view related disaster locations, vehicles, and
+                operational information using location-based
+                mapping.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- AI PREDICTION -->
+
+      <div class="details-card">
+
+        <h2>
+          <i class="bi bi-robot"></i>
+          AI Resource Demand Prediction
+        </h2>
+
+        <div class="ai-box">
+
+
+          <div class="ai-item">
+
+            <h4>
+              Gradient Boosting Model
+            </h4>
+
+            <p>
+              The system uses a trained Gradient Boosting based
+              regression model to estimate resource requirements
+              for disaster-affected zones.
+            </p>
+
+          </div>
+
+
+          <div class="ai-item">
+
+            <h4>
+              Multi-Resource Prediction
+            </h4>
+
+            <p>
+              The prediction engine estimates requirements for
+              food, water, medical kits, and shelter.
+            </p>
+
+          </div>
+
+
+          <div class="ai-item">
+
+            <h4>
+              Vulnerability-Based Adjustment
+            </h4>
+
+            <p>
+              Zone vulnerability information is considered while
+              calculating resource requirements so that areas with
+              higher vulnerable populations can receive appropriate
+              demand adjustments.
+            </p>
+
+          </div>
+
+
+          <div class="ai-item">
+
+            <h4>
+              Scenario Simulation
+            </h4>
+
+            <p>
+              The platform also provides scenario simulation to
+              evaluate resource demand based on different input
+              conditions.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- SYSTEM FLOW -->
+
+      <div class="details-card">
+
+        <h2>
+          <i class="bi bi-diagram-3"></i>
+          System Workflow
+        </h2>
+
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            1
+          </div>
+
+          <p>
+            <strong>Disaster Data</strong><br>
+            Disaster information and geographic locations are
+            collected and stored in the system.
+          </p>
+
+        </div>
+
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            2
+          </div>
+
+          <p>
+            <strong>Impact & Zone Assessment</strong><br>
+            Affected zones are identified using location,
+            population, severity, and vulnerability information.
+          </p>
+
+        </div>
+
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            3
+          </div>
+
+          <p>
+            <strong>AI Demand Prediction</strong><br>
+            The trained machine learning model predicts required
+            food, water, medical, and shelter resources.
+          </p>
+
+        </div>
+
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            4
+          </div>
+
+          <p>
+            <strong>Resource & Vehicle Allocation</strong><br>
+            Available resources and vehicles are considered for
+            disaster response operations.
+          </p>
+
+        </div>
+
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            5
+          </div>
+
+          <p>
+            <strong>Logistics Optimization</strong><br>
+            The system generates resource allocation and logistics
+            plans based on demand and available resources.
+          </p>
+
+        </div>
+
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            6
+          </div>
+
+          <p>
+            <strong>Mission Execution</strong><br>
+            Field teams receive missions and operational information
+            required for relief activities.
+          </p>
+
+        </div>
+
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            7
+          </div>
+
+          <p>
+            <strong>Monitoring & Coordination</strong><br>
+            Coordinators monitor disasters, resources, missions,
+            vehicles, SOS requests, and logistics through the
+            dashboard.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- KEY FEATURES -->
+
+      <div class="details-card">
+
+        <h2>
+          <i class="bi bi-check2-circle"></i>
+          Key Features
+        </h2>
+
+        <ul class="feature-list">
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            AI-based resource demand prediction
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Disaster and affected-zone management
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Interactive geospatial disaster map
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Resource inventory management
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Vehicle and field team management
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Mission assignment and tracking
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            SOS and emergency request management
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Logistics planning and optimization
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Route and location-based operations
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Role-based access for Admin, Emergency Coordinator,
+            and Field Team
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Real-time dashboard notifications
+          </li>
+
+          <li>
+            <i class="bi bi-check-circle-fill"></i>
+            Responsive field-operation interface
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- TECHNOLOGIES -->
+
+      <div class="details-card">
+
+        <h2>
+          <i class="bi bi-cpu"></i>
+          Technologies Used
+        </h2>
+
+        <div class="technology-list">
+
+          <span class="technology">
+            <i class="bi bi-filetype-py"></i>
+            Python
+          </span>
+
+          <span class="technology">
+            <i class="bi bi-lightning-charge"></i>
+            FastAPI
+          </span>
+
+          <span class="technology">
+            <i class="bi bi-database"></i>
+            SQLite
+          </span>
+
+          <span class="technology">
+            <i class="bi bi-code-slash"></i>
+            React.js
+          </span>
+
+          <span class="technology">
+            <i class="bi bi-map"></i>
+            Leaflet.js
+          </span>
+
+          <span class="technology">
+            <i class="bi bi-wind"></i>
+            Machine Learning
+          </span>
+
+          <span class="technology">
+            Gradient Boosting
+          </span>
+
+          <span class="technology">
+            Multi-Output Regression
+          </span>
+
+          <span class="technology">
+            REST APIs
+          </span>
+
+          <span class="technology">
+            Tailwind CSS
+          </span>
+
+          <span class="technology">
+            JavaScript
+          </span>
+
+          <span class="technology">
+            JWT Authentication
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- PLATFORM -->
+
+      <div class="details-card">
+
+        <h2>
+          <i class="bi bi-window-stack"></i>
+          Platform Capabilities
+        </h2>
+
+        <p>
+          The platform provides a centralized disaster operations
+          dashboard where administrators and emergency coordinators
+          can monitor disasters, manage resources, vehicles,
+          field teams, missions, SOS requests, and logistics.
+          Field teams receive mobile-friendly operational views
+          with location-based mission information.
+        </p>
+
+        <br>
+
+        <p>
+          The system connects the AI prediction layer with
+          operational resource and logistics modules, allowing
+          predicted demand to support practical disaster-response
+          decisions.
+        </p>
+
+      </div>
+
+
+      <!-- DEMO VIDEO -->
+
+      <div class="details-card">
+
+        <h2>
+          <i class="bi bi-play-circle"></i>
+          Project Demo
+        </h2>
+
+        <video
+          class="demo-video"
+          controls
+          preload="metadata">
+
+          <source
+            src="assets/videos/disaster.mp4"
+            type="video/mp4">
+
+          Your browser does not support the video tag.
+
+        </video>
+
+        <div class="video-note">
+          AI-Based Disaster Response Management System — Project Demo
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT LINKS -->
+
+      <div class="details-card text-center">
+
+        
+          </a>
+
+
+          <a
+            href="projects.html"
+            class="project-btn btn-outline">
+
+            <i class="bi bi-arrow-left"></i>
+            Back to Projects
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+      © 2026 Shreenithy R S. All Rights Reserved.
+
+    </div>
+
+  </footer>
+
+
+  <!-- Bootstrap JS -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+</body>
+
+</html>

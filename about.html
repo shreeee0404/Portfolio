@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | Shreenithy R S</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,.035), transparent 28%),
+                radial-gradient(circle at 10% 70%, rgba(255,255,255,.025), transparent 30%),
+                #030303;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ================= BACKGROUND ANIMATION ================= */
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(80px);
+        }
+
+        body::before {
+            width: 300px;
+            height: 300px;
+            top: 15%;
+            left: -120px;
+            background: rgba(255,255,255,.025);
+            animation: floatingGlow 12s ease-in-out infinite;
+        }
+
+        body::after {
+            width: 350px;
+            height: 350px;
+            bottom: 5%;
+            right: -150px;
+            background: rgba(255,255,255,.02);
+            animation: floatingGlowReverse 15s ease-in-out infinite;
+        }
+
+        @keyframes floatingGlow {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(80px, 50px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes floatingGlowReverse {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-70px, -40px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(0, 0, 0, 0.55);
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid rgba(255,255,255,.08);
+
+            padding: 18px 0;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: .5px;
+        }
+
+        .navbar-nav {
+            gap: 8px;
+        }
+
+        .nav-link {
+            color: #aaa !important;
+            font-size: .88rem;
+            padding: 8px 14px !important;
+            transition: .3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff !important;
+        }
+
+        .navbar-toggler {
+            border: 1px solid rgba(255,255,255,.15);
+            padding: 7px 10px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-section {
+            padding: 90px 0 70px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 75px;
+
+            background: rgba(255,255,255,.035);
+
+            border: 1px solid rgba(255,255,255,.09);
+
+            border-radius: 24px;
+
+            padding: 55px;
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            animation: cardAppear 1s ease forwards;
+        }
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-label {
+            font-size: .78rem;
+            color: #999;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .about-text h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 22px;
+        }
+
+        .about-text h1 span {
+            color: #aaa;
+        }
+
+        .about-text p {
+            color: #aaa;
+            font-size: .92rem;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        /* ================= INFO ================= */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 28px;
+        }
+
+        .info-item {
+            padding: 15px 18px;
+
+            background: rgba(255,255,255,.025);
+
+            border: 1px solid rgba(255,255,255,.06);
+
+            border-radius: 12px;
+
+            transition: .3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,.14);
+            background: rgba(255,255,255,.04);
+        }
+
+        .info-item span {
+            display: block;
+            color: #777;
+            font-size: .72rem;
+            margin-bottom: 4px;
+        }
+
+        .info-item strong {
+            color: #ddd;
+            font-size: .82rem;
+            font-weight: 400;
+        }
+
+        /* ================= RESUME BUTTON ================= */
+
+        .resume-action {
+            margin-top: 28px;
+        }
+
+        .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 11px 20px;
+
+            color: #fff;
+            text-decoration: none;
+
+            font-size: .82rem;
+
+            border: 1px solid rgba(255,255,255,.15);
+
+            border-radius: 10px;
+
+            background: rgba(255,255,255,.045);
+
+            transition: .3s ease;
+        }
+
+        .resume-btn:hover {
+            color: #000;
+            background: #fff;
+            border-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ================= PROFILE ================= */
+
+        .profile-area {
+            flex: 0 0 330px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-wrapper {
+            position: relative;
+
+            width: 300px;
+            height: 300px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* OUTER ANIMATED RINGS */
+
+        .profile-wrapper::before,
+        .profile-wrapper::after {
+            content: "";
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .profile-wrapper::before {
+            width: 330px;
+            height: 330px;
+
+            border: 1px solid rgba(255,255,255,.13);
+
+            animation: rotateRing 12s linear infinite;
+        }
+
+        .profile-wrapper::after {
+            width: 360px;
+            height: 360px;
+
+            border: 1px solid rgba(255,255,255,.05);
+
+            animation: rotateRingReverse 18s linear infinite;
+        }
+
+        @keyframes rotateRing {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotateRingReverse {
+
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        /* PHOTO */
+
+        .profile-image {
+            width: 280px;
+            height: 280px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 4px solid rgba(255,255,255,.09);
+
+            position: relative;
+            z-index: 2;
+
+            box-shadow:
+                0 0 35px rgba(255,255,255,.05);
+
+            animation: profileFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes profileFloat {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= ACADEMIC JOURNEY ================= */
+
+        .education-section {
+            padding: 15px 0 100px;
+        }
+
+        .section-heading {
+            margin-bottom: 48px;
+        }
+
+        .section-label {
+            color: #777;
+
+            font-size: .72rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2.5px;
+
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: #777;
+            font-size: .86rem;
+            margin: 0;
+        }
+
+        /* ================= HORIZONTAL EDUCATION ================= */
+
+        .education-list {
+            position: relative;
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+        }
+
+        .education-list::before {
+            content: "";
+
+            position: absolute;
+
+            top: 10px;
+            left: 0;
+            right: 0;
+
+            height: 1px;
+
+            background: rgba(255,255,255,.12);
+        }
+
+        .education-row {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 28px;
+        }
+
+        .education-item {
+            position: relative;
+
+            padding-top: 38px;
+        }
+
+        .education-item::before {
+            content: "";
+
+            position: absolute;
+
+            top: 3px;
+            left: 0;
+
+            width: 14px;
+            height: 14px;
+
+            border-radius: 50%;
+
+            background: #030303;
+
+            border: 2px solid rgba(255,255,255,.45);
+
+            z-index: 2;
+
+            box-shadow:
+                0 0 0 5px rgba(255,255,255,.02);
+
+            animation: timelinePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes timelinePulse {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 0 5px rgba(255,255,255,.02);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 0 8px rgba(255,255,255,.035);
+            }
+        }
+
+        .education-card {
+            height: 100%;
+
+            padding: 25px;
+
+            background: rgba(255,255,255,.035);
+
+            border: 1px solid rgba(255,255,255,.09);
+
+            border-radius: 18px;
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+
+            transition: .3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(255,255,255,.18);
+
+            background: rgba(255,255,255,.05);
+        }
+
+        .education-year {
+            display: inline-block;
+
+            font-size: .72rem;
+
+            color: #aaa;
+
+            padding: 6px 11px;
+
+            border: 1px solid rgba(255,255,255,.1);
+
+            border-radius: 20px;
+
+            margin-bottom: 18px;
+        }
+
+        .education-card h3 {
+            font-size: 1rem;
+
+            font-weight: 500;
+
+            color: #fff;
+
+            line-height: 1.5;
+
+            margin-bottom: 9px;
+        }
+
+        .education-card h4 {
+            font-size: .83rem;
+
+            font-weight: 400;
+
+            color: #aaa;
+
+            line-height: 1.6;
+
+            margin-bottom: 15px;
+        }
+
+        .education-card p {
+            color: #777;
+
+            font-size: .78rem;
+
+            line-height: 1.7;
+
+            margin-bottom: 6px;
+        }
+
+        .education-card .location {
+            color: #888;
+        }
+
+        .education-card .cgpa {
+            color: #aaa;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,.07);
+
+            padding: 25px 0;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: .75rem;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 991px) {
+
+            .about-content {
+                gap: 45px;
+                padding: 40px;
+            }
+
+            .profile-area {
+                flex: 0 0 280px;
+            }
+
+            .profile-wrapper {
+                width: 250px;
+                height: 250px;
+            }
+
+            .profile-image {
+                width: 235px;
+                height: 235px;
+            }
+
+            .profile-wrapper::before {
+                width: 275px;
+                height: 275px;
+            }
+
+            .profile-wrapper::after {
+                width: 300px;
+                height: 300px;
+            }
+
+            .education-row {
+                gap: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .navbar-nav {
+                margin-top: 12px;
+            }
+
+            .about-section {
+                padding: 60px 0 50px;
+            }
+
+            .about-content {
+                flex-direction: column-reverse;
+
+                padding: 35px 25px;
+
+                text-align: center;
+            }
+
+            .profile-area {
+                flex: none;
+            }
+
+            .profile-wrapper {
+                width: 240px;
+                height: 240px;
+            }
+
+            .profile-image {
+                width: 225px;
+                height: 225px;
+            }
+
+            .profile-wrapper::before {
+                width: 265px;
+                height: 265px;
+            }
+
+            .profile-wrapper::after {
+                width: 290px;
+                height: 290px;
+            }
+
+            .info-grid {
+                text-align: left;
+            }
+
+            .resume-action {
+                display: flex;
+                justify-content: center;
+            }
+
+            .education-section {
+                padding-bottom: 70px;
+            }
+
+            .section-heading {
+                margin-bottom: 40px;
+            }
+
+            /* Mobile timeline */
+
+            .education-list::before {
+                top: 0;
+                bottom: 0;
+
+                left: 6px;
+                right: auto;
+
+                width: 1px;
+                height: auto;
+            }
+
+            .education-row {
+                display: block;
+            }
+
+            .education-item {
+                padding-top: 0;
+                padding-left: 35px;
+
+                margin-bottom: 28px;
+            }
+
+            .education-item::before {
+                top: 24px;
+                left: 0;
+            }
+
+            .education-card {
+                padding: 22px;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .about-text h1 {
+                font-size: 2rem;
+            }
+
+            .about-text p {
+                font-size: .85rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-wrapper {
+                width: 210px;
+                height: 210px;
+            }
+
+            .profile-image {
+                width: 195px;
+                height: 195px;
+            }
+
+            .profile-wrapper::before {
+                width: 235px;
+                height: 235px;
+            }
+
+            .profile-wrapper::after {
+                width: 255px;
+                height: 255px;
+            }
+
+            .section-heading h2 {
+                font-size: 1.7rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            Portfolio
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="projects.html">
+                        Projects
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="skills.html">
+                        Skills
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="experiences.html">
+                        Experiences
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about-section">
+
+    <div class="container">
+
+        <div class="about-content">
+
+            <!-- LEFT -->
+
+            <div class="about-text">
+
+                <div class="about-label">
+                    About Me
+                </div>
+
+                <h1>
+                    Shreenithy <span>R S</span>
+                </h1>
+
+                <p>
+                    I am a Computer Science Engineering student passionate about
+                    software development, artificial intelligence, machine learning,
+                    and building technology-driven solutions.
+                </p>
+
+                <p>
+                    I enjoy transforming ideas into practical applications while
+                    continuously improving my technical knowledge and problem-solving
+                    abilities.
+                </p>
+
+                <div class="info-grid">
+
+                    <div class="info-item">
+
+                        <span>
+                            Degree
+                        </span>
+
+                        <strong>
+                            B.E. Computer Science Engineering
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>
+                            Institution
+                        </span>
+
+                        <strong>
+                            Sri Krishna College of Engineering and Technology
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>
+                            Location
+                        </span>
+
+                        <strong>
+                            Coimbatore, Tamil Nadu
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span>
+                            CGPA
+                        </span>
+
+                        <strong>
+                            8.25
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="resume-action">
+
+                    <a
+                        href="assets/ppt/Resume.pdf"
+                        download
+                        class="resume-btn">
+
+                        <i class="bi bi-download"></i>
+
+                        Download Resume
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT PROFILE -->
+
+            <div class="profile-area">
+
+                <div class="profile-wrapper">
+
+                    <img
+                        src="assets/img/profile-img.jpeg"
+                        alt="Shreenithy R S"
+                        class="profile-image">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ACADEMIC JOURNEY ================= -->
+
+<section class="education-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Academic Journey
+            </div>
+
+            <h2>
+                Education
+            </h2>
+
+            <p>
+                My academic background and learning journey.
+            </p>
+
+        </div>
+
+
+        <!-- HORIZONTAL EDUCATION TIMELINE -->
+
+        <div class="education-list">
+
+            <div class="education-row">
+
+
+                <!-- 2023 - 2027 -->
+
+                <div class="education-item">
+
+                    <div class="education-card">
+
+                        <div class="education-year">
+                            2023 — 2027
+                        </div>
+
+                        <h3>
+                            Sri Krishna College of Engineering and Technology
+                        </h3>
+
+                        <h4>
+                            Bachelor of Engineering in Computer Science Engineering
+                        </h4>
+
+                        <p class="location">
+                            Coimbatore, Tamil Nadu
+                        </p>
+
+                        <p class="cgpa">
+
+                            CGPA: 8.25
+
+                            <span>•</span>
+
+                            Currently Pursuing
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 2023 -->
+
+                <div class="education-item">
+
+                    <div class="education-card">
+
+                        <div class="education-year">
+                            2023
+                        </div>
+
+                        <h3>
+                            Vishwa Sishya Vidyodaya School
+                        </h3>
+
+                        <h4>
+                            Class XII
+                        </h4>
+
+                        <p class="location">
+                            Pollachi, Tamil Nadu
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CLASS X -->
+
+                <div class="education-item">
+
+                    <div class="education-card">
+
+                        <div class="education-year">
+                            Secondary Education
+                        </div>
+
+                        <h3>
+                            Vishwa Sishya Vidyodaya School
+                        </h3>
+
+                        <h4>
+                            Class X
+                        </h4>
+
+                        <p class="location">
+                            Pollachi, Tamil Nadu
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 Shreenithy R S. All Rights Reserved.
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

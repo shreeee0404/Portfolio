@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Projects | Shreenithy R S</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =====================================================
+       GLOBAL
+    ====================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #ffffff;
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(255,255,255,0.035),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 85% 80%,
+          rgba(255,255,255,0.025),
+          transparent 30%
+        ),
+        #030303;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ====================================================== */
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.55) !important;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+
+      padding: 18px 0;
+
+      position: sticky;
+      top: 0;
+
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      color: #ffffff !important;
+
+      font-size: 1.35rem;
+      font-weight: 700;
+
+      letter-spacing: 0.3px;
+    }
+
+    .navbar-nav {
+      gap: 4px;
+    }
+
+    .navbar-nav .nav-link {
+      color: rgba(255,255,255,0.78) !important;
+
+      font-size: 0.91rem;
+      font-weight: 500;
+
+      margin: 0 7px;
+      padding: 8px 4px !important;
+
+      position: relative;
+
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      bottom: 0;
+
+      width: 0;
+      height: 1px;
+
+      background: #ffffff;
+
+      transition: width 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffffff !important;
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width: 100%;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #ffffff !important;
+    }
+
+    .navbar-toggler {
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+
+    /* =====================================================
+       PROJECT SECTION
+    ====================================================== */
+
+    .projects-section {
+      padding: 90px 0 75px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-label {
+      color: rgba(255,255,255,0.50);
+
+      text-transform: uppercase;
+
+      letter-spacing: 3px;
+
+      font-size: 0.72rem;
+
+      font-weight: 600;
+
+      margin-bottom: 12px;
+    }
+
+    .section-heading h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+
+      font-weight: 700;
+
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: rgba(255,255,255,0.60);
+
+      max-width: 680px;
+
+      margin: auto;
+
+      font-size: 0.90rem;
+
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       PROJECT CARD
+    ====================================================== */
+
+    .project-card {
+      height: 100%;
+
+      background: rgba(255,255,255,0.025);
+
+      border: 1px solid rgba(255,255,255,0.10);
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      transition: all 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+
+      border-color: rgba(255,255,255,0.25);
+
+      box-shadow:
+        0 18px 45px rgba(0,0,0,0.45);
+    }
+
+
+    /* =====================================================
+       PROJECT IMAGE
+    ====================================================== */
+
+    .project-image-wrapper {
+      height: 210px;
+
+      overflow: hidden;
+
+      background: #080808;
+
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+
+
+    /* =====================================================
+       PROJECT CONTENT
+    ====================================================== */
+
+    .project-content {
+      padding: 25px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      min-height: 320px;
+    }
+
+    .project-number {
+      color: rgba(255,255,255,0.35);
+
+      font-size: 0.70rem;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 8px;
+    }
+
+    .project-title {
+      color: #ffffff;
+
+      font-size: 1.10rem;
+
+      font-weight: 600;
+
+      line-height: 1.45;
+
+      margin-bottom: 12px;
+    }
+
+    .project-description {
+      color: rgba(255,255,255,0.62);
+
+      font-size: 0.82rem;
+
+      line-height: 1.75;
+
+      margin-bottom: 18px;
+    }
+
+
+    /* =====================================================
+       TECHNOLOGY TAGS
+    ====================================================== */
+
+    .tech-tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 20px;
+    }
+
+    .tech-tag {
+      font-size: 0.65rem;
+
+      padding: 5px 9px;
+
+      border: 1px solid rgba(255,255,255,0.12);
+
+      border-radius: 50px;
+
+      color: rgba(255,255,255,0.65);
+
+      background: rgba(255,255,255,0.025);
+    }
+
+
+    /* =====================================================
+       BUTTONS
+    ====================================================== */
+
+    .project-buttons {
+      margin-top: auto;
+
+      display: flex;
+
+      gap: 9px;
+
+      flex-wrap: wrap;
+    }
+
+    .project-btn {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 6px;
+
+      font-size: 0.73rem;
+
+      padding: 8px 14px;
+
+      border-radius: 7px;
+
+      transition: all 0.3s ease;
+    }
+
+    .github-btn {
+      color: #ffffff;
+
+      border: 1px solid rgba(255,255,255,0.25);
+
+      background: transparent;
+    }
+
+    .github-btn:hover {
+      background: #ffffff;
+
+      color: #000000;
+
+      border-color: #ffffff;
+    }
+
+    .details-btn {
+      color: #000000;
+
+      background: #ffffff;
+
+      border: 1px solid #ffffff;
+    }
+
+    .details-btn:hover {
+      background: transparent;
+
+      color: #ffffff;
+    }
+
+    .demo-btn {
+      color: #ffffff;
+
+      border: 1px solid rgba(255,255,255,0.25);
+
+      background: rgba(255,255,255,0.04);
+    }
+
+    .demo-btn:hover {
+      background: #ffffff;
+
+      color: #000000;
+    }
+
+    .disabled-btn {
+      color: rgba(255,255,255,0.35);
+
+      border: 1px solid rgba(255,255,255,0.10);
+
+      background: rgba(255,255,255,0.025);
+
+      pointer-events: none;
+    }
+
+
+    /* =====================================================
+       SPECIAL PROJECT
+    ====================================================== */
+
+    .featured-card {
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .featured-card .project-number {
+      color: rgba(255,255,255,0.55);
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+
+      padding: 25px 0;
+
+      margin-top: 20px;
+
+      text-align: center;
+
+      color: rgba(255,255,255,0.40);
+
+      font-size: 0.75rem;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ====================================================== */
+
+    @media (max-width: 991px) {
+
+      .navbar-nav {
+        padding-top: 15px;
+      }
+
+      .navbar-nav .nav-link {
+        margin: 3px 0;
+      }
+
+      .projects-section {
+        padding-top: 65px;
+      }
+
+    }
+
+
+    @media (max-width: 576px) {
+
+      .projects-section {
+        padding: 55px 15px 50px;
+      }
+
+      .section-heading {
+        margin-bottom: 35px;
+      }
+
+      .project-image-wrapper {
+        height: 190px;
+      }
+
+      .project-content {
+        padding: 21px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+<header>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container">
+
+      <a class="navbar-brand" href="index.html">
+        Portfolio
+      </a>
+
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              Home
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">
+              About
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link active" href="projects.html">
+              Projects
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="skills.html">
+              Skills
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="experiences.html">
+              Experiences
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     PROJECTS
+====================================================== -->
+
+<section class="projects-section">
+
+  <div class="container">
+
+
+    <!-- PAGE HEADING -->
+
+    <div class="section-heading">
+
+      <h1>
+        Projects
+      </h1>
+
+      <p>
+        A collection of software development, artificial intelligence,
+        machine learning, IoT, and application development projects.
+      </p>
+
+    </div>
+
+
+
+    <div class="row g-4">
+
+
+      <!-- =================================================
+           PROJECT 1
+      ================================================== -->
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+          <div class="project-image-wrapper">
+
+            <img
+              src="assets/img/portfolio.jpg"
+              class="project-image"
+              alt="Personal Portfolio Website"
+            >
+
+          </div>
+
+
+          <div class="project-content">
+
+            <div class="project-number">
+              PROJECT 01
+            </div>
+
+            <h3 class="project-title">
+              Personal Portfolio Website
+            </h3>
+
+            <p class="project-description">
+              A responsive personal portfolio website created to
+              showcase my profile, education, skills, projects,
+              experience, and contact information.
+            </p>
+
+
+            <div class="tech-tags">
+
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">Bootstrap</span>
+              <span class="tech-tag">Responsive Design</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a
+                href="https://github.com/shreeee0404/"
+                target="_blank"
+                class="project-btn github-btn"
+              >
+                <i class="bi bi-github"></i>
+                GitHub
+              </a>
+
+              <a
+                href="index.html"
+                class="project-btn details-btn"
+              >
+                View
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PROJECT 2
+      ================================================== -->
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+          <div class="project-image-wrapper">
+
+            <img
+              src="assets/img/hospital-react.jpg"
+              class="project-image"
+              alt="Hospital Management System"
+            >
+
+          </div>
+
+
+          <div class="project-content">
+
+            <div class="project-number">
+              PROJECT 02
+            </div>
+
+            <h3 class="project-title">
+              Hospital Management System
+            </h3>
+
+            <p class="project-description">
+              A React.js application for managing doctors, patients,
+              appointments, medical records, and hospital services.
+            </p>
+
+
+            <div class="tech-tags">
+
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a
+                href="https://github.com/shreeee04/REACT.JS"
+                target="_blank"
+                class="project-btn github-btn"
+              >
+                <i class="bi bi-github"></i>
+                GitHub
+              </a>
+
+              <a
+                href="portfolio-details-hos.html#hms-react"
+                class="project-btn details-btn"
+              >
+                Details
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PROJECT 3
+      ================================================== -->
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+          <div class="project-image-wrapper">
+
+            <img
+              src="assets/img/yoga.jpg"
+              class="project-image"
+              alt="Interactive Online Yoga Academy"
+            >
+
+          </div>
+
+
+          <div class="project-content">
+
+            <div class="project-number">
+              PROJECT 03
+            </div>
+
+            <h3 class="project-title">
+              Interactive Online Yoga Academy
+            </h3>
+
+            <p class="project-description">
+              A REST API based application supporting users,
+              yoga sessions, personalized learning, and
+              interactive application features.
+            </p>
+
+
+            <div class="tech-tags">
+
+              <span class="tech-tag">REST API</span>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">Backend</span>
+              <span class="tech-tag">Application Development</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a
+                href="https://github.com/shreeee04/API-Interactive-yoga-academy"
+                target="_blank"
+                class="project-btn github-btn"
+              >
+                <i class="bi bi-github"></i>
+                GitHub
+              </a>
+
+              <a
+                href="portfolio-details-yoga.html#yoga"
+                class="project-btn details-btn"
+              >
+                Details
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PROJECT 4
+      ================================================== -->
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+          <div class="project-image-wrapper">
+
+            <img
+              src="assets/img/hotel.jpg"
+              class="project-image"
+              alt="Hotel Management System"
+            >
+
+          </div>
+
+
+          <div class="project-content">
+
+            <div class="project-number">
+              PROJECT 04
+            </div>
+
+            <h3 class="project-title">
+              Hotel Management System
+            </h3>
+
+            <p class="project-description">
+              A full-stack hotel management application for
+              room management, customers, staff, bookings,
+              and reservations.
+            </p>
+
+
+            <div class="tech-tags">
+
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">REST API</span>
+              <span class="tech-tag">MySQL</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a
+                href="https://github.com/shreeee0404/Hotel-Booking-and-Management-System-hotel"
+                target="_blank"
+                class="project-btn github-btn"
+              >
+                <i class="bi bi-github"></i>
+                GitHub
+              </a>
+
+              <a
+                href="portfolio-details-hotel.html#hotel-booking"
+                class="project-btn details-btn"
+              >
+                Details
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PROJECT 5
+      ================================================== -->
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+          <div class="project-image-wrapper">
+
+            <img
+              src="assets/img/smart-health.jpg"
+              class="project-image"
+              alt="Smart Health and Driving Safety System"
+            >
+
+          </div>
+
+
+          <div class="project-content">
+
+            <div class="project-number">
+              PROJECT 05
+            </div>
+
+            <h3 class="project-title">
+              Smart Health & Driving Safety System
+            </h3>
+
+            <p class="project-description">
+              An IoT-based safety system focused on alcohol
+              detection, vehicle restriction, driver monitoring,
+              and emergency alert mechanisms.
+            </p>
+
+
+            <div class="tech-tags">
+
+              <span class="tech-tag">Arduino</span>
+              <span class="tech-tag">IoT</span>
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Sensors</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a
+                href="#"
+                class="project-btn disabled-btn"
+              >
+                <i class="bi bi-github"></i>
+                GitHub
+              </a>
+
+              <a
+                href="portfolio-details-shdss.html#shdss"
+                class="project-btn details-btn"
+              >
+                Details
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PROJECT 6
+           SMOKE & GAS
+      ================================================== -->
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+          <div class="project-image-wrapper">
+
+            <img
+              src="assets/img/smoke-gas.png"
+              class="project-image"
+              alt="Smoke and Gas Detection System"
+            >
+
+          </div>
+
+
+          <div class="project-content">
+
+            <div class="project-number">
+              PROJECT 06
+            </div>
+
+            <h3 class="project-title">
+              Smoke & Gas Detection System
+            </h3>
+
+            <p class="project-description">
+              An Arduino-based safety system using the MQ-2
+              sensor to detect smoke and gas and provide
+              real-time buzzer and LCD alerts.
+            </p>
+
+
+            <div class="tech-tags">
+
+              <span class="tech-tag">Arduino</span>
+              <span class="tech-tag">MQ-2 Sensor</span>
+              <span class="tech-tag">LCD</span>
+              <span class="tech-tag">Buzzer</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a
+                href="#"
+                class="project-btn disabled-btn"
+              >
+                <i class="bi bi-github"></i>
+                GitHub
+              </a>
+
+              <a
+                href="smoke-gas-details.html"
+                class="project-btn details-btn"
+              >
+                Details
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PROJECT 7
+           AI SKILL GAP
+      ================================================== -->
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+          <div class="project-image-wrapper">
+
+            <img
+              src="assets/img/skill-gap.jpg"
+              class="project-image"
+              alt="AI Powered Skill Gap Analysis"
+            >
+
+          </div>
+
+
+          <div class="project-content">
+
+            <div class="project-number">
+              PROJECT 07
+            </div>
+
+            <h3 class="project-title">
+              AI-Powered Skill Gap Analysis & Career Recommendation
+            </h3>
+
+            <p class="project-description">
+              An AI-powered application that analyzes user skills,
+              predicts suitable career roles, identifies skill gaps,
+              and provides personalized learning recommendations.
+            </p>
+
+
+            <div class="tech-tags">
+
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TF-IDF</span>
+              <span class="tech-tag">Random Forest</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a
+                href="https://github.com/shreeee0404/Skill-Gap-Analysis-And-Career-Recommendation-System"
+                target="_blank"
+                class="project-btn github-btn"
+              >
+                <i class="bi bi-github"></i>
+                GitHub
+              </a>
+
+              <a
+                href="skill-gap-details.html"
+                class="project-btn details-btn"
+              >
+                Details
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PROJECT 8
+           DISASTER MANAGEMENT
+      ================================================== -->
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="project-card featured-card">
+
+          <div class="project-image-wrapper">
+
+            <img
+              src="assets/img/disaster-response.png"
+              class="project-image"
+              alt="AI Based Disaster Response Management System"
+            >
+
+          </div>
+
+
+          <div class="project-content">
+
+            <div class="project-number">
+              PROJECT 08 · AI / FULL STACK
+            </div>
+
+            <h3 class="project-title">
+              AI-Based Disaster Response Management System
+            </h3>
+
+            <p class="project-description">
+              A full-stack AI-powered disaster response platform
+              for resource allocation, relief coordination,
+              impact mapping, AI demand prediction, logistics,
+              SOS management, and field-team operations.
+            </p>
+
+
+            <div class="tech-tags">
+
+              <span class="tech-tag">AI</span>
+              <span class="tech-tag">Machine Learning</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Leaflet</span>
+              <span class="tech-tag">PWA</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a
+                href="https://github.com/shreeee0404/AI-Powered-Emergency-Response-Intelligence-Platform-"
+                target="_blank"
+                class="project-btn github-btn"
+              >
+                <i class="bi bi-github"></i>
+                GitHub
+              </a>
+
+              <a
+                href="disaster-management-details.html"
+                class="project-btn details-btn"
+              >
+                Details
+              </a>
+
+              <a
+                href="assets/videos/disaster.mp4"
+                target="_blank"
+                class="project-btn demo-btn"
+              >
+                <i class="bi bi-play-circle"></i>
+                Demo
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PROJECT 9
+           CUSTOMER BEHAVIOR ANALYTICS
+      ================================================== -->
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+          <div class="project-image-wrapper">
+
+            <img
+              src="assets/img/customer-behavior.jpg"
+              class="project-image"
+              alt="ML Customer Behavior Analytics"
+            >
+
+          </div>
+
+
+          <div class="project-content">
+
+            <div class="project-number">
+              PROJECT 09
+            </div>
+
+            <h3 class="project-title">
+              ML Customer Behavior Analytics & Insight Generation System
+            </h3>
+
+            <p class="project-description">
+              A machine learning project focused on customer behavior
+              analysis and insight generation.
+            </p>
+
+
+            <div class="tech-tags">
+
+              <span class="tech-tag">Machine Learning</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Analytics</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a
+                href="https://github.com/shreeee0404/ML_Customer-Behavior-Analytics-Insight-Generation-System"
+                target="_blank"
+                class="project-btn github-btn"
+              >
+                <i class="bi bi-github"></i>
+                GitHub
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PROJECT 10
+           NLP CUSTOMER SUPPORT
+      ================================================== -->
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="project-card">
+
+          <div class="project-image-wrapper">
+
+            <img
+              src="assets/img/nlp-support.png"
+              class="project-image"
+              alt="NLP Customer Support Ticket System"
+            >
+
+          </div>
+
+
+          <div class="project-content">
+
+            <div class="project-number">
+              PROJECT 10
+            </div>
+
+            <h3 class="project-title">
+              NLP Customer Support Ticket Cleaning & Annotation System
+            </h3>
+
+            <p class="project-description">
+              A Natural Language Processing project for cleaning,
+              processing, and annotating customer support ticket data.
+            </p>
+
+
+            <div class="tech-tags">
+
+              <span class="tech-tag">NLP</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Text Processing</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a
+                href="https://github.com/shreeee0404/NLP_Customer-Support-Ticket-Cleaning-Annotation-System"
+                target="_blank"
+                class="project-btn github-btn"
+              >
+                <i class="bi bi-github"></i>
+                GitHub
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+  <div class="container">
+
+    <p class="mb-0">
+      © 2026 Shreenithy R S. All Rights Reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>

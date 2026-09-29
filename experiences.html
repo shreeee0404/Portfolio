@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Experiences | Shreenithy R S</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(255,255,255,0.045), transparent 30%),
+                radial-gradient(circle at 85% 70%, rgba(255,255,255,0.035), transparent 30%),
+                #050505;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: rgba(5, 5, 5, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: #ffffff !important;
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #aaaaaa !important;
+            font-size: 0.9rem;
+            margin: 0 7px;
+            transition: 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #ffffff !important;
+        }
+
+        .navbar-toggler {
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            padding: 145px 20px 70px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 15px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #aaaaaa;
+            font-size: 0.75rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-badge i {
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #999999;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .hero-line {
+            width: 70px;
+            height: 3px;
+            background: #ffffff;
+            margin: 25px auto 0;
+            border-radius: 20px;
+        }
+
+        /* ================= MAIN ================= */
+
+        .experience-section {
+            padding: 10px 0 90px;
+        }
+
+        /* ================= SECTION TITLE ================= */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #777777;
+            font-size: 0.82rem;
+            margin: 0;
+        }
+
+        /* ================= TIMELINE ================= */
+
+        .timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 1px;
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-50%);
+        }
+
+        /* ================= TIMELINE ITEM ================= */
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 0 45px;
+            margin-bottom: 55px;
+        }
+
+        .timeline-item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        /* ================= CENTER DOT ================= */
+
+        .timeline-dot {
+            position: absolute;
+            top: 30px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #050505;
+            border: 2px solid #ffffff;
+            z-index: 5;
+            box-shadow: 0 0 0 6px rgba(255,255,255,0.035);
+        }
+
+        .timeline-item.left .timeline-dot {
+            right: -7px;
+        }
+
+        .timeline-item.right .timeline-dot {
+            left: -7px;
+        }
+
+        /* ================= CONNECTOR ================= */
+
+        .timeline-connector {
+            position: absolute;
+            top: 36px;
+            height: 1px;
+            width: 45px;
+            background: rgba(255,255,255,0.18);
+        }
+
+        .timeline-item.left .timeline-connector {
+            right: 0;
+        }
+
+        .timeline-item.right .timeline-connector {
+            left: 0;
+        }
+
+        /* ================= CARD ================= */
+
+        .experience-card {
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 18px;
+            padding: 28px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: 0.35s ease;
+            display: inline-block;
+            width: 100%;
+            text-align: left;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255,255,255,0.055);
+            border-color: rgba(255,255,255,0.22);
+        }
+
+        /* ================= CARD ICON ================= */
+
+        .experience-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .experience-icon i {
+            font-size: 21px;
+            color: #ffffff;
+        }
+
+        /* ================= DATE ================= */
+
+        .experience-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 12px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #999999;
+            font-size: 0.68rem;
+            margin-bottom: 15px;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .experience-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .experience-role {
+            color: #bbbbbb;
+            font-size: 0.82rem;
+            margin-bottom: 5px;
+        }
+
+        .experience-location {
+            color: #777777;
+            font-size: 0.72rem;
+            margin-bottom: 16px;
+        }
+
+        .experience-description {
+            color: #999999;
+            font-size: 0.8rem;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        /* ================= TAGS ================= */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            padding: 6px 11px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #aaaaaa;
+            font-size: 0.67rem;
+        }
+
+        /* ================= ACHIEVEMENTS ================= */
+
+        .achievement-card {
+            position: relative;
+        }
+
+        .achievement-number {
+            position: absolute;
+            top: 20px;
+            right: 22px;
+            font-size: 0.68rem;
+            color: #666666;
+        }
+
+        .achievement-card h3 {
+            padding-right: 30px;
+        }
+
+        /* ================= ACHIEVEMENT SECTION ================= */
+
+        .achievement-section-title {
+            text-align: center;
+            margin: 15px 0 45px;
+        }
+
+        .achievement-section-title h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .achievement-section-title p {
+            color: #777777;
+            font-size: 0.82rem;
+            margin: 0;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 25px 0;
+            text-align: center;
+            color: #777777;
+            font-size: 0.78rem;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 768px) {
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item.left,
+            .timeline-item.right {
+                width: 100%;
+                left: 0;
+                padding-left: 55px;
+                padding-right: 10px;
+                text-align: left;
+                margin-bottom: 40px;
+            }
+
+            .timeline-item.left .timeline-dot,
+            .timeline-item.right .timeline-dot {
+                left: 13px;
+                right: auto;
+            }
+
+            .timeline-item.left .timeline-connector,
+            .timeline-item.right .timeline-connector {
+                left: 20px;
+                right: auto;
+                width: 35px;
+            }
+
+            .experience-card {
+                padding: 23px;
+            }
+
+            .achievement-section-title {
+                margin-top: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">
+                Portfolio
+            </a>
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">
+                            Skills
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="experiences.html">
+                            Experiences
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <h1>Experience & Achievements</h1>
+            <div class="hero-line"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EXPERIENCE ================= -->
+
+    <section class="experience-section">
+
+        <div class="container">
+
+            <!-- ================= PROFESSIONAL EXPERIENCE ================= -->
+
+            <div class="section-title">
+
+                <h2>Professional Experience</h2>
+
+                <p>
+                    Internship experience and practical exposure
+                </p>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <!-- ================= INFOSYS ================= -->
+
+                <div class="timeline-item right">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-connector"></div>
+
+                    <div class="experience-card">
+
+                        <div class="experience-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+
+                        <div class="experience-date">
+                            <i class="bi bi-calendar3"></i>
+                            Aug – Oct 2026
+                        </div>
+
+                        <h3>Infosys Virtual Internship 7.0</h3>
+
+                        <div class="experience-role">
+                            AI Domain
+                        </div>
+
+                        <div class="experience-location">
+                            <i class="bi bi-geo-alt"></i>
+                            Virtual
+                        </div>
+
+                        <p class="experience-description">
+                            Virtual internship experience focused on the
+                            Artificial Intelligence domain, providing exposure
+                            to practical AI concepts and technology-oriented
+                            project development.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">Artificial Intelligence</span>
+                            <span class="tag">AI Domain</span>
+                            <span class="tag">Virtual Internship</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= RR INDUSTRIES ================= -->
+
+                <div class="timeline-item left">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-connector"></div>
+
+                    <div class="experience-card">
+
+                        <div class="experience-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+
+                        <div class="experience-date">
+                            <i class="bi bi-calendar3"></i>
+                            May – June 2025
+                        </div>
+
+                        <h3>RR Industries Limited</h3>
+
+                        <div class="experience-role">
+                            Networking Intern
+                        </div>
+
+                        <div class="experience-location">
+                            <i class="bi bi-geo-alt"></i>
+                            Chennai, Tamil Nadu
+                        </div>
+
+                        <p class="experience-description">
+                            Internship experience in networking with exposure
+                            to networking concepts, technical infrastructure
+                            and practical IT environments.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">Networking</span>
+                            <span class="tag">IT Infrastructure</span>
+                            <span class="tag">Technical Exposure</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= ACHIEVEMENTS TITLE ================= -->
+
+                <div class="achievement-section-title">
+
+                    <h2>Achievements</h2>
+
+                    <p>
+                        Competitions and technical accomplishments
+                    </p>
+
+                </div>
+
+
+                <!-- ================= TECH SAVISHKAAR ================= -->
+
+                <div class="timeline-item left">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-connector"></div>
+
+                    <div class="experience-card achievement-card">
+
+                        <span class="achievement-number">
+                            01
+                        </span>
+
+                        <div class="experience-icon">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+
+                        <div class="experience-date">
+                            <i class="bi bi-calendar3"></i>
+                            2025
+                        </div>
+
+                        <h3>Tech Savishkaar 2.0</h3>
+
+                        <div class="experience-role">
+                            National Level Hackathon Winner
+                        </div>
+
+                        <p class="experience-description">
+                            Achieved the winner position at Tech Savishkaar 2.0,
+                            a national-level hackathon, demonstrating technical
+                            problem-solving and project development skills.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">Hackathon</span>
+                            <span class="tag">National Level</span>
+                            <span class="tag">Winner</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= ELECTROTHON ================= -->
+
+                <div class="timeline-item right">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-connector"></div>
+
+                    <div class="experience-card achievement-card">
+
+                        <span class="achievement-number">
+                            02
+                        </span>
+
+                        <div class="experience-icon">
+                            <i class="bi bi-award"></i>
+                        </div>
+
+                        <div class="experience-date">
+                            <i class="bi bi-calendar3"></i>
+                            2025
+                        </div>
+
+                        <h3>Electrothon</h3>
+
+                        <div class="experience-role">
+                            Echoes of Innovation – Finalist
+                        </div>
+
+                        <div class="experience-location">
+                            <i class="bi bi-geo-alt"></i>
+                            Chennai Institute of Technology
+                        </div>
+
+                        <p class="experience-description">
+                            Reached the finalist stage at Electrothon –
+                            Echoes of Innovation, showcasing technical
+                            innovation and problem-solving capabilities.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">Electrothon</span>
+                            <span class="tag">Innovation</span>
+                            <span class="tag">Finalist</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            © 2026 Shreenithy R S. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact | Shreenithy R S</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 35%),
+        #050505;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================== */
+
+    .navbar {
+      background: rgba(5, 5, 5, 0.72) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 18px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      color: #ffffff !important;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .navbar-nav {
+      gap: 8px;
+    }
+
+    .navbar-nav .nav-link {
+      color: #bdbdbd !important;
+      font-size: 0.92rem;
+      font-weight: 400;
+      padding: 8px 12px !important;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .navbar-toggler {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 48vh;
+      padding: 155px 20px 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 7px 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 50px;
+      background: rgba(255,255,255,0.04);
+      color: #bdbdbd;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      color: #999999;
+      font-size: 1rem;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       CONTACT SECTION
+    ========================== */
+
+    .contact-section {
+      padding: 20px 0 100px;
+    }
+
+    .contact-wrapper {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 18px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+      transform: translateY(-3px);
+    }
+
+    .contact-main {
+      padding: 45px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #888888;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+
+    /* =========================
+       CONTACT ITEMS
+    ========================== */
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-label {
+      color: #777777;
+      font-size: 0.75rem;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .contact-details a {
+      color: #dddddd;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+    }
+
+    .contact-details a:hover {
+      color: #ffffff;
+    }
+
+    .contact-details span {
+      color: #dddddd;
+      font-size: 0.95rem;
+    }
+
+    /* =========================
+       SOCIAL SECTION
+    ========================== */
+
+    .social-section {
+      margin-top: 30px;
+    }
+
+    .social-title {
+      color: #999999;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: #cccccc;
+      text-decoration: none;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 1.15rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.18);
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       RIGHT CARD
+    ========================== */
+
+    .availability-card {
+      height: 100%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .availability-icon {
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+    }
+
+    .availability-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .availability-card p {
+      color: #888888;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .location-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 11px 18px;
+      border-radius: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      font-size: 0.85rem;
+      transition: 0.3s ease;
+    }
+
+    .location-button:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 25px 20px;
+      text-align: center;
+      color: #666666;
+      font-size: 0.8rem;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 991px) {
+
+      .navbar-nav {
+        padding-top: 15px;
+        gap: 2px;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 10px 12px !important;
+      }
+
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+
+    }
+
+    @media (max-width: 767px) {
+
+      .hero {
+        padding: 135px 20px 55px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .contact-section {
+        padding: 10px 15px 70px;
+      }
+
+      .contact-main {
+        padding: 30px 22px;
+      }
+
+      .availability-card {
+        padding: 30px 22px;
+      }
+
+      .contact-wrapper {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================== -->
+
+<nav class="navbar navbar-expand-lg">
+
+  <div class="container">
+
+    <a class="navbar-brand" href="index.html">
+      Portfolio
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">
+            About
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="projects.html">
+            Projects
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="skills.html">
+            Skills
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="experiences.html">
+            Experiences
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="contact.html">
+            Contact
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero">
+
+  <div class="hero-content">
+    <h1>Contact Me</h1>
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT SECTION
+========================== -->
+
+<section class="contact-section">
+
+  <div class="container contact-wrapper">
+
+    <div class="row g-4">
+
+      <!-- LEFT -->
+      <div class="col-lg-7">
+
+        <div class="glass-card contact-main">
+
+          <h2 class="section-title">
+            Let's Connect
+          </h2>
+
+          <p class="section-subtitle">
+            You can reach me through the following contact details
+            and social platforms.
+          </p>
+
+
+          <!-- Location -->
+          <div class="contact-item">
+
+            <div class="contact-icon">
+              <i class="bi bi-geo-alt"></i>
+            </div>
+
+            <div class="contact-details">
+
+              <span class="contact-label">
+                Location
+              </span>
+
+              <a
+                href="https://www.google.com/maps?q=Pollachi,+Coimbatore,+Tamil+Nadu"
+                target="_blank">
+
+                Pollachi, Coimbatore, Tamil Nadu
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <!-- Email -->
+          <div class="contact-item">
+
+            <div class="contact-icon">
+              <i class="bi bi-envelope"></i>
+            </div>
+
+            <div class="contact-details">
+
+              <span class="contact-label">
+                Email
+              </span>
+
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=shreenithys417@gmail.com"
+                target="_blank">
+
+                shreenithys417@gmail.com
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <!-- Social Links -->
+          <div class="social-section">
+
+            <div class="social-title">
+              Social Profiles
+            </div>
+
+            <div class="social-links">
+
+              <!-- Facebook -->
+              <a
+                class="social-link"
+                href="https://www.facebook.com/shree.nithy.12"
+                target="_blank"
+                title="Facebook">
+
+                <i class="bi bi-facebook"></i>
+
+              </a>
+
+
+              <!-- GitHub -->
+              <a
+                class="social-link"
+                href="https://github.com/shreeee0404/"
+                target="_blank"
+                title="GitHub">
+
+                <i class="bi bi-github"></i>
+
+              </a>
+
+
+              <!-- LinkedIn -->
+              <a
+                class="social-link"
+                href="https://www.linkedin.com/in/shreenithy-r-s-625581290/"
+                target="_blank"
+                title="LinkedIn">
+
+                <i class="bi bi-linkedin"></i>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT -->
+      <div class="col-lg-5">
+
+        <div class="glass-card availability-card">
+
+          <div class="availability-icon">
+            <i class="bi bi-chat-dots"></i>
+          </div>
+
+          <h3>
+            Open to Opportunities
+          </h3>
+
+          <p>
+            I am interested in software development, AI & machine
+            learning, full-stack development, and innovative
+            technology projects.
+          </p>
+
+          <a
+            class="location-button"
+            href="https://www.google.com/maps?q=Pollachi,+Coimbatore,+Tamil+Nadu"
+            target="_blank">
+
+            <i class="bi bi-geo-alt"></i>
+            View Location
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+  © 2026 Shreenithy R S. All Rights Reserved.
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

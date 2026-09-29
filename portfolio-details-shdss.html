@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>SHDSS - Portfolio Details</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 35%),
+        #050505;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: rgba(10, 10, 10, 0.65);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      color: #fff !important;
+    }
+
+    .navbar-nav .nav-link {
+      color: #aaa !important;
+      margin: 0 8px;
+      transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #fff !important;
+    }
+
+    .hero {
+      padding: 150px 20px 70px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 55px);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #aaa;
+      max-width: 800px;
+      margin: auto;
+      font-size: 16px;
+    }
+
+    .section {
+      padding: 50px 20px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 18px;
+      padding: 30px;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      height: 100%;
+    }
+
+    .glass-card h4 {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .glass-card p,
+    .glass-card li {
+      color: #bdbdbd;
+      line-height: 1.8;
+    }
+
+    .glass-card strong {
+      color: #fff;
+    }
+
+    .project-image {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .tech {
+      display: inline-block;
+      padding: 7px 14px;
+      margin: 5px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #ddd;
+      font-size: 13px;
+    }
+
+    .workflow-step {
+      padding: 18px;
+      margin-bottom: 15px;
+      border-left: 2px solid rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+    }
+
+    .workflow-step strong {
+      color: #fff;
+    }
+
+    .btn-custom {
+      padding: 11px 22px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-custom:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .private-note {
+      color: #bdbdbd;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 50px;
+      padding: 25px;
+      text-align: center;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: 120px;
+      }
+
+      .glass-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+
+    <a class="navbar-brand" href="index.html">
+      Portfolio
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        
+
+        <li class="nav-item">
+          <a class="nav-link active" href="projects.html">Projects</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="skills.html">Skills</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="experiences.html">Experiences</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- Hero -->
+<section class="hero">
+
+  <h1>Smart Health & Driving Safety System</h1>
+
+  <p>
+    AI, IoT, and Machine Learning-powered system for real-time driving safety
+  </p>
+
+  <div class="mt-4">
+
+    
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- Abstract -->
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Project Overview
+    </h2>
+
+    <div class="glass-card">
+
+      <p>
+        Road accidents, often caused by fatigue, drunk driving, and poor
+        health, require proactive safety measures. The
+        <strong>Smart Health & Driving Safety System (SHDSS)</strong>
+        enhances road safety through real-time health monitoring,
+        fatigue detection, and intelligent vehicle control.
+      </p>
+
+      <p>
+        The system includes Automatic Emergency Braking (AEB),
+        drowsiness detection, alcohol monitoring, and adaptive speed
+        control for adverse conditions.
+      </p>
+
+      <p>
+        It also integrates renewable energy sources such as solar and
+        wind power for vehicle lighting, radio, and AC ventilation,
+        supporting safer and sustainable driving.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Key Features -->
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Key Features
+    </h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-6">
+
+        <div class="glass-card">
+
+          <h4>
+            <i class="bi bi-heart-pulse"></i>
+            Health Monitoring
+          </h4>
+
+          <p>
+            Monitors driver health conditions in real time using
+            integrated sensors.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="glass-card">
+
+          <h4>
+            <i class="bi bi-eye"></i>
+            Drowsiness Detection
+          </h4>
+
+          <p>
+            Uses eye tracking and machine learning-based verification
+            to detect driver drowsiness and intoxication.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="glass-card">
+
+          <h4>
+            <i class="bi bi-cup-straw"></i>
+            Alcohol Monitoring
+          </h4>
+
+          <p>
+            Detects alcohol levels and applies safety actions based
+            on the detected level.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="glass-card">
+
+          <h4>
+            <i class="bi bi-car-front"></i>
+            Intelligent Vehicle Control
+          </h4>
+
+          <p>
+            The system can reduce vehicle speed for low health or
+            medium alcohol levels and prevent vehicle startup for
+            high alcohol levels.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="glass-card">
+
+          <h4>
+            <i class="bi bi-exclamation-triangle"></i>
+            Automatic Emergency Braking
+          </h4>
+
+          <p>
+            Provides Automatic Emergency Braking as part of the
+            driving safety mechanism.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="glass-card">
+
+          <h4>
+            <i class="bi bi-lightning-charge"></i>
+            Renewable Energy
+          </h4>
+
+          <p>
+            Integrates solar and wind energy for vehicle lighting,
+            radio, and AC ventilation.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Safety Logic -->
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Safety Control
+    </h2>
+
+    <div class="glass-card">
+
+      <div class="workflow-step">
+
+        <strong>Low Health Condition</strong>
+
+        <p class="mb-0">
+          The system reduces vehicle speed to support safer driving.
+        </p>
+
+      </div>
+
+      <div class="workflow-step">
+
+        <strong>Medium Alcohol Level</strong>
+
+        <p class="mb-0">
+          The system slows down the vehicle as a safety intervention.
+        </p>
+
+      </div>
+
+      <div class="workflow-step">
+
+        <strong>High Alcohol Level</strong>
+
+        <p class="mb-0">
+          The system prevents vehicle startup to prioritize drunk
+          driving prevention.
+        </p>
+
+      </div>
+
+      <div class="workflow-step">
+
+        <strong>Driver Verification</strong>
+
+        <p class="mb-0">
+          Eye tracking and machine learning are used to verify the
+          driver's condition.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Technologies -->
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Technologies Used
+    </h2>
+
+    <div class="glass-card">
+
+      <span class="tech">Artificial Intelligence</span>
+      <span class="tech">IoT</span>
+      <span class="tech">Machine Learning</span>
+      <span class="tech">Sensor Integration</span>
+      <span class="tech">Embedded Systems</span>
+      <span class="tech">Microcontroller</span>
+      <span class="tech">Solar Power</span>
+      <span class="tech">Wind Power</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- System Components -->
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      System Components
+    </h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-6">
+
+        <div class="glass-card">
+
+          <h4>
+            <i class="bi bi-cpu"></i>
+            Embedded System
+          </h4>
+
+          <p>
+            Microcontroller-based system integrated with the vehicle
+            and seat belt for driver-focused monitoring.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="glass-card">
+
+          <h4>
+            <i class="bi bi-activity"></i>
+            Health Sensors
+          </h4>
+
+          <p>
+            Sensors monitor driver-related health conditions including
+            heart rate and other safety parameters.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="glass-card">
+
+          <h4>
+            <i class="bi bi-droplet"></i>
+            Alcohol Sensor
+          </h4>
+
+          <p>
+            Detects alcohol levels and provides input to the vehicle
+            safety control mechanism.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="glass-card">
+
+          <h4>
+            <i class="bi bi-camera"></i>
+            Eye Tracking
+          </h4>
+
+          <p>
+            Tracks the driver's eyes to support drowsiness and
+            intoxication verification.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- System Workflow -->
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      System Workflow
+    </h2>
+
+    <div class="glass-card">
+
+      <div class="workflow-step">
+        <strong>01. Driver Monitoring</strong>
+        <p class="mb-0">
+          Health, alcohol, and eye-related parameters are monitored
+          continuously.
+        </p>
+      </div>
+
+      <div class="workflow-step">
+        <strong>02. Condition Detection</strong>
+        <p class="mb-0">
+          Sensor and machine learning inputs are used to identify
+          unsafe driving conditions.
+        </p>
+      </div>
+
+      <div class="workflow-step">
+        <strong>03. Driver Verification</strong>
+        <p class="mb-0">
+          Eye tracking supports verification that the monitored
+          condition belongs to the driver.
+        </p>
+      </div>
+
+      <div class="workflow-step">
+        <strong>04. Safety Intervention</strong>
+        <p class="mb-0">
+          The system applies appropriate vehicle control such as
+          speed reduction or startup prevention.
+        </p>
+      </div>
+
+      <div class="workflow-step">
+        <strong>05. Sustainable Power</strong>
+        <p class="mb-0">
+          Solar and wind energy are used to support selected vehicle
+          electrical requirements.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Project Outcome -->
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Project Outcome
+    </h2>
+
+    <div class="glass-card">
+
+      <p>
+        SHDSS combines AI, IoT, machine learning, sensors, embedded
+        systems, and renewable energy concepts to provide proactive
+        driving safety through real-time monitoring and intelligent
+        vehicle interventions.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Project Resources -->
+<section class="section">
+
+  <div class="container">
+      <a
+                href="projects.html"
+                class="btn-custom"
+            >
+                <i class="bi bi-arrow-left"></i>
+                Back to Projects
+            </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Footer -->
+<footer>
+  © 2026 Shreenithy R S. All Rights Reserved.
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
